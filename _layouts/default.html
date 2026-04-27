@@ -18,15 +18,7 @@
   </head>
   <body>
     {% include nav.html %}
-    <main id="top">
-      {% include hero.html %}
-      {% include about.html %}
-      {% include academics.html %}
-      {% include extracurriculars.html %}
-      {% include awards.html %}
-      {% include highlights.html %}
-      {% include contact.html %}
-    </main>
+    <main id="top">{{ content }}</main>
     {% include footer.html %}
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
   </body>

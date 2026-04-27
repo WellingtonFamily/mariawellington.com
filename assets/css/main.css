@@ -353,6 +353,22 @@ h2 {
   clip-path: var(--tear);
 }
 
+/* Subtle paper fiber so the fill feels like stock, not flat plastic */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.45;
+  background-image:
+    repeating-linear-gradient(118deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(60, 48, 40, 0.045) 2px, rgba(60, 48, 40, 0.045) 3px),
+    repeating-linear-gradient(12deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 4px, rgba(80, 65, 120, 0.035) 4px, rgba(80, 65, 120, 0.035) 5px);
+  mix-blend-mode: multiply;
+  -webkit-clip-path: var(--tear);
+  clip-path: var(--tear);
+}
+
 .grid > .card-shell:nth-child(3n + 1) .card {
   --tear: url(#tear-a);
 }
@@ -445,6 +461,19 @@ h2 {
   vertical-align: middle;
 }
 
+/* Caption below the image (e.g. PDF link); figure can’t use overflow:hidden or the caption clips */
+.card--with-map .highlight-map:has(figcaption) {
+  overflow: visible;
+  border: none;
+  background: transparent;
+}
+
+.card--with-map .highlight-map:has(figcaption) img {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface-soft);
+}
+
 .card--with-map .highlight-map--embed {
   overflow: visible;
   border: none;
@@ -468,11 +497,6 @@ h2 {
   width: 100%;
   height: 100%;
   border: 0;
-}
-
-.highlight-map-frame--poster {
-  aspect-ratio: 2 / 3;
-  max-height: min(420px, 72vh);
 }
 
 .highlight-map-caption {

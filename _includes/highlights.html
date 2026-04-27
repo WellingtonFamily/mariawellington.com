@@ -22,22 +22,13 @@
                   loading="lazy"
                   decoding="async"
                 />
-              </figure>
-            {% endif %}
-            {% if highlight.poster_pdf %}
-              <figure class="highlight-map highlight-map--embed">
-                <div class="highlight-map-frame highlight-map-frame--poster">
-                  <iframe
-                    src="{{ highlight.poster_pdf | relative_url }}#toolbar=0"
-                    title="{{ highlight.title | xml_escape }} poster"
-                    loading="lazy"
-                  ></iframe>
-                </div>
-                <figcaption class="highlight-map-caption">
-                  <span class="highlight-map-external">
-                    <a href="{{ highlight.poster_pdf | relative_url }}" target="_blank" rel="noopener">Open poster (PDF)</a>
-                  </span>
-                </figcaption>
+                {% if highlight.poster_pdf %}
+                  <figcaption class="highlight-map-caption">
+                    <span class="highlight-map-external">
+                      <a href="{{ highlight.poster_pdf | relative_url }}" target="_blank" rel="noopener">Open poster (PDF)</a>
+                    </span>
+                  </figcaption>
+                {% endif %}
               </figure>
             {% endif %}
             {% if highlight.detail_url %}

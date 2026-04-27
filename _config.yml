@@ -1,0 +1,10 @@
+title: Maria Wellington Portfolio
+email: hello@example.com
+description: Academic and extracurricular portfolio for college applications.
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: null
+permalink: pretty
+
+collections: []

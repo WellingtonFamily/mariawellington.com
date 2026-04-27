@@ -1,0 +1,13 @@
+<section id="highlights" class="section">
+  <div class="container">
+    <h2>Highlights</h2>
+    <div class="grid">
+      {% for highlight in site.data.highlights %}
+        <article class="card">
+          <h3>{{ highlight.title }}</h3>
+          <p>{{ highlight.description }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h1>A portfolio focused on purpose, growth, and impact.</h1>
+      <p class="subtitle">
+        {{ site.data.profile.tagline }}
+      </p>
+      <p class="meta">
+        {{ site.data.profile.name }} · Class of {{ site.data.profile.class_year }} · Interested in
+        {{ site.data.profile.intended_majors | join: ", " }}
+      </p>
+      <div class="cta-row">
+        <a class="button" href="#contact">Get in touch</a>
+        <a class="button button-soft" href="#highlights">View highlights</a>
+      </div>
+    </div>
+    <aside class="hero-card" data-float>
+      <p class="hero-card-title">At a Glance</p>
+      <p class="hero-card-text">
+        A quick look at Maria's academics, leadership, and community involvement.
+      </p>
+    </aside>
+  </div>
+</section>

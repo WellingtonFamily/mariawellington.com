@@ -1,0 +1,14 @@
+<section id="awards" class="section section-alt">
+  <div class="container">
+    <h2>Honors & Milestones</h2>
+    <ul class="timeline">
+      {% for award in site.data.awards %}
+        <li>
+          <strong>{{ award.year }} - {{ award.title }}</strong>
+          <span>{{ award.issuer }}</span>
+          <p>{{ award.context }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

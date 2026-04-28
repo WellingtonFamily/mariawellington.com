@@ -228,8 +228,19 @@ h1 {
   box-shadow: none;
 }
 
+/* If this aside is uncommented: clip-path clips text too — mirror .card (paper on ::before only) or add an inner wrapper. */
 .hero-card {
-  background: linear-gradient(150deg, #fffdfb 0%, #faf3eb 100%);
+  background:
+    linear-gradient(78deg, transparent 40%, rgba(115, 88, 58, 0.06) 44.5%, rgba(115, 88, 58, 0.1) 46.5%, rgba(115, 88, 58, 0.055) 49%, transparent 53%),
+    linear-gradient(198deg, transparent 46%, rgba(95, 72, 52, 0.048) 50.5%, rgba(95, 72, 52, 0.09) 52%, rgba(95, 72, 52, 0.042) 54.5%, transparent 58%),
+    linear-gradient(152deg, transparent 58%, rgba(108, 82, 58, 0.045) 62%, rgba(108, 82, 58, 0.078) 63.5%, rgba(108, 82, 58, 0.04) 66%, transparent 70%),
+    linear-gradient(22deg, transparent 18%, rgba(100, 78, 55, 0.04) 22%, rgba(100, 78, 55, 0.075) 23.5%, rgba(100, 78, 55, 0.038) 26%, transparent 30%),
+    linear-gradient(112deg, transparent 72%, rgba(88, 68, 50, 0.038) 76%, rgba(88, 68, 50, 0.068) 77.5%, transparent 81%),
+    radial-gradient(ellipse 92% 58% at 22% 78%, rgba(188, 158, 125, 0.09), transparent 58%),
+    radial-gradient(ellipse 72% 48% at 82% 20%, rgba(198, 172, 138, 0.075), transparent 52%),
+    radial-gradient(ellipse 50% 38% at 55% 45%, rgba(165, 135, 105, 0.055), transparent 62%),
+    radial-gradient(ellipse 45% 55% at 68% 68%, rgba(175, 145, 115, 0.06), transparent 55%),
+    linear-gradient(150deg, #fffdfb 0%, #faf3eb 100%);
   border: none;
   border-radius: 0;
   box-shadow: none;
@@ -326,33 +337,100 @@ h2 {
   filter: var(--paper-raise);
 }
 
+/* Clip only the paper layers (::before / ::after), not text — avoids torn edge cutting glyphs */
 .card {
   --tear: url(#tear-a);
   position: relative;
   z-index: 0;
-  background: linear-gradient(160deg, #fffcfa 0%, #faf4ec 50%, #f2e9e1 100%);
+  background: transparent;
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: 1.55rem 1.5rem 1.5rem;
-  -webkit-clip-path: var(--tear);
-  clip-path: var(--tear);
+  /* Room for torn top edge + washi before copy starts */
+  padding: 2.45rem 1.95rem 2rem;
 }
 
-/* Subtle paper fiber so the fill feels like stock, not flat plastic */
+/* Base stock + subtle fiber; torn silhouette applies here only */
 .card::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.45;
   background-image:
-    repeating-linear-gradient(118deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(60, 48, 40, 0.045) 2px, rgba(60, 48, 40, 0.045) 3px),
-    repeating-linear-gradient(12deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 4px, rgba(80, 65, 120, 0.035) 4px, rgba(80, 65, 120, 0.035) 5px);
-  mix-blend-mode: multiply;
+    repeating-linear-gradient(118deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 2px, rgba(60, 48, 40, 0.02) 2px, rgba(60, 48, 40, 0.02) 3px),
+    repeating-linear-gradient(12deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 4px, rgba(80, 65, 120, 0.016) 4px, rgba(80, 65, 120, 0.016) 5px),
+    linear-gradient(160deg, #fffcfa 0%, #faf4ec 50%, #f2e9e1 100%);
+  background-blend-mode: multiply, multiply, normal;
   -webkit-clip-path: var(--tear);
   clip-path: var(--tear);
+}
+
+/* Crumpled creases — three distinct fold patterns (multiply keeps the yellow paper base) */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.38;
+  mix-blend-mode: multiply;
+  background:
+    linear-gradient(48deg, transparent 41%, rgba(118, 90, 58, 0.065) 45%, rgba(118, 90, 58, 0.12) 47%, rgba(118, 90, 58, 0.058) 49.5%, transparent 54%),
+    linear-gradient(132deg, transparent 34%, rgba(92, 72, 52, 0.05) 38.5%, rgba(92, 72, 52, 0.1) 40.5%, rgba(92, 72, 52, 0.045) 43%, transparent 48%),
+    linear-gradient(18deg, transparent 52%, rgba(105, 80, 58, 0.048) 56%, rgba(105, 80, 58, 0.088) 57.5%, rgba(105, 80, 58, 0.042) 60%, transparent 64%),
+    linear-gradient(96deg, transparent 22%, rgba(98, 75, 54, 0.042) 26%, rgba(98, 75, 54, 0.078) 27.5%, rgba(98, 75, 54, 0.036) 30%, transparent 34%),
+    linear-gradient(168deg, transparent 62%, rgba(88, 68, 50, 0.04) 66%, rgba(88, 68, 50, 0.072) 67.5%, transparent 71%),
+    linear-gradient(72deg, transparent 8%, rgba(112, 85, 62, 0.038) 12%, rgba(112, 85, 62, 0.065) 13.5%, transparent 17%),
+    linear-gradient(162deg, rgba(255, 252, 246, 0.4) 0%, transparent 36%),
+    radial-gradient(ellipse 88% 52% at 16% 74%, rgba(186, 156, 122, 0.092), transparent 56%),
+    radial-gradient(ellipse 74% 48% at 90% 20%, rgba(202, 176, 142, 0.082), transparent 52%),
+    radial-gradient(ellipse 52% 42% at 50% 46%, rgba(158, 128, 98, 0.062), transparent 58%),
+    radial-gradient(ellipse 42% 56% at 72% 62%, rgba(168, 138, 108, 0.055), transparent 54%);
+  -webkit-clip-path: var(--tear);
+  clip-path: var(--tear);
+}
+
+.grid > .card-shell:nth-child(3n + 1) .card::after,
+.timeline li:nth-child(3n + 1) .card::after {
+  transform: rotate(0.45deg);
+  opacity: 0.37;
+}
+
+.grid > .card-shell:nth-child(3n + 2) .card::after,
+.timeline li:nth-child(3n + 2) .card::after {
+  transform: rotate(-0.55deg) scale(1.012);
+  opacity: 0.36;
+  background:
+    linear-gradient(62deg, transparent 38%, rgba(115, 88, 62, 0.06) 42%, rgba(115, 88, 62, 0.11) 44%, rgba(115, 88, 62, 0.052) 46.5%, transparent 51%),
+    linear-gradient(154deg, transparent 28%, rgba(90, 70, 52, 0.05) 32%, rgba(90, 70, 52, 0.095) 33.5%, rgba(90, 70, 52, 0.044) 36%, transparent 40%),
+    linear-gradient(118deg, transparent 68%, rgba(100, 76, 55, 0.048) 72%, rgba(100, 76, 55, 0.085) 73.5%, rgba(100, 76, 55, 0.04) 76%, transparent 80%),
+    linear-gradient(14deg, transparent 44%, rgba(108, 82, 60, 0.045) 48%, rgba(108, 82, 60, 0.082) 49.5%, transparent 53%),
+    linear-gradient(88deg, transparent 12%, rgba(95, 74, 54, 0.04) 16%, rgba(95, 74, 54, 0.072) 17.5%, transparent 21%),
+    linear-gradient(-18deg, transparent 78%, rgba(85, 66, 48, 0.042) 82%, rgba(85, 66, 48, 0.07) 83.5%, transparent 87%),
+    linear-gradient(178deg, rgba(255, 251, 244, 0.38) 0%, transparent 34%),
+    radial-gradient(ellipse 78% 56% at 82% 72%, rgba(190, 160, 128, 0.09), transparent 55%),
+    radial-gradient(ellipse 62% 50% at 14% 24%, rgba(195, 168, 135, 0.078), transparent 50%),
+    radial-gradient(ellipse 48% 44% at 48% 38%, rgba(152, 122, 95, 0.06), transparent 56%),
+    radial-gradient(ellipse 55% 40% at 30% 88%, rgba(175, 145, 118, 0.058), transparent 52%);
+}
+
+.grid > .card-shell:nth-child(3n + 3) .card::after,
+.timeline li:nth-child(3n + 3) .card::after {
+  transform: rotate(0.32deg) scale(0.988);
+  opacity: 0.35;
+  background:
+    linear-gradient(38deg, transparent 46%, rgba(120, 92, 65, 0.058) 50%, rgba(120, 92, 65, 0.11) 51.5%, rgba(120, 92, 65, 0.05) 54%, transparent 58%),
+    linear-gradient(142deg, transparent 18%, rgba(94, 72, 52, 0.048) 22%, rgba(94, 72, 52, 0.09) 23.5%, rgba(94, 72, 52, 0.04) 26%, transparent 30%),
+    linear-gradient(76deg, transparent 58%, rgba(102, 78, 56, 0.046) 62%, rgba(102, 78, 56, 0.084) 63.5%, rgba(102, 78, 56, 0.04) 66%, transparent 70%),
+    linear-gradient(12deg, transparent 32%, rgba(110, 84, 62, 0.044) 36%, rgba(110, 84, 62, 0.08) 37.5%, transparent 41%),
+    linear-gradient(170deg, transparent 6%, rgba(88, 68, 50, 0.04) 10%, rgba(88, 68, 50, 0.068) 11.5%, transparent 15%),
+    linear-gradient(102deg, transparent 84%, rgba(92, 72, 54, 0.04) 88%, rgba(92, 72, 54, 0.065) 89.5%, transparent 93%),
+    linear-gradient(8deg, rgba(255, 252, 246, 0.36) 0%, transparent 32%),
+    radial-gradient(ellipse 70% 58% at 24% 32%, rgba(188, 158, 125, 0.088), transparent 54%),
+    radial-gradient(ellipse 80% 46% at 88% 58%, rgba(200, 172, 140, 0.08), transparent 52%),
+    radial-gradient(ellipse 44% 48% at 56% 18%, rgba(160, 130, 100, 0.064), transparent 58%),
+    radial-gradient(ellipse 50% 52% at 40% 78%, rgba(170, 140, 112, 0.056), transparent 53%);
 }
 
 .grid > .card-shell:nth-child(3n + 1) .card {
@@ -376,8 +454,8 @@ h2 {
   inset: 0;
   z-index: 5;
   border-radius: 0;
-  -webkit-clip-path: inherit;
-  clip-path: inherit;
+  -webkit-clip-path: var(--tear);
+  clip-path: var(--tear);
 }
 
 .card a[href]:not(.card-hit) {
@@ -402,21 +480,37 @@ h2 {
   color: #6b5a8a;
 }
 
-/* washi on the shell: partly over section “board”, partly on the paper; not clipped by --tear */
+/* Highlights: extra top inset so copy clears tape + torn edge */
+#highlights .card {
+  padding: 4.1rem 2.35rem 2.4rem;
+}
+
+#highlights .card--with-map {
+  padding-bottom: 2.5rem;
+}
+
+/*
+ * Washi: one consistent placement on every grid card (top-right, straddling the tear).
+ * Only the gradient color varies by column — no jumping left/right.
+ */
 .card-shell::after {
   content: "";
   position: absolute;
-  top: -0.16rem;
-  right: 0.58rem;
-  width: 58px;
-  height: 15px;
+  top: 0.42rem;
+  right: 0.62rem;
+  left: auto;
+  width: 64px;
+  height: 16px;
   z-index: 3;
   border-radius: 3px;
   background: var(--tape-sun);
   opacity: 0.95;
   transform: rotate(4deg);
+  transform-origin: center center;
   pointer-events: none;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 2px 6px rgba(45, 35, 60, 0.1);
 }
 
 .grid > .card-shell:nth-child(3n + 2)::after {
@@ -510,6 +604,39 @@ h2 {
   margin-inline: auto;
 }
 
+/* Coulonge (and future detail pages): same torn paper + washi as grid cards */
+.highlight-detail-paper-wrap {
+  margin-top: 0.35rem;
+  overflow: visible;
+}
+
+.highlight-detail-paper {
+  --tear: url(#tear-b);
+  /* Match highlights top inset so back link + title clear the tape */
+  padding: 4.1rem 2.35rem 2.4rem;
+}
+
+/* Explicit tape = same geometry as .card-shell::after; mint accent for this page */
+.highlight-detail-paper-wrap.card-shell::after {
+  content: "";
+  position: absolute;
+  top: 0.42rem;
+  right: 0.62rem;
+  left: auto;
+  width: 64px;
+  height: 16px;
+  z-index: 3;
+  border-radius: 3px;
+  background: var(--tape-mint);
+  opacity: 0.95;
+  transform: rotate(4deg);
+  transform-origin: center center;
+  pointer-events: none;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 2px 6px rgba(45, 35, 60, 0.1);
+}
+
 .highlight-detail-back {
   margin: 0 0 1rem;
   font-size: 0.95rem;
@@ -576,13 +703,9 @@ h2 {
   position: relative;
   z-index: 0;
   margin: 0;
-  background: linear-gradient(160deg, #fffcfa 0%, #faf4ec 50%, #f2e9e1 100%);
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: 1.55rem 1.5rem 1.5rem;
-  -webkit-clip-path: var(--tear);
-  clip-path: var(--tear);
 }
 
 .timeline li:nth-child(3n + 1) .card {
@@ -597,15 +720,18 @@ h2 {
   --tear: url(#tear-c);
 }
 
-/* Honors: tape on the shell, top-left; straddles board + paper (not cut by the tear) */
+/* Honors: same tape geometry as grid, top-left so it doesn’t crowd the heading */
 #awards .card-shell--honors::after {
-  top: -0.12rem;
+  top: 0.42rem;
   right: auto;
   left: 0.62rem;
-  width: 54px;
-  height: 14px;
+  width: 64px;
+  height: 16px;
   transform: rotate(-4deg);
   background: var(--tape-sun);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55),
+    0 2px 6px rgba(45, 35, 60, 0.1);
 }
 
 #awards .timeline li:nth-child(3n + 2) .card-shell--honors::after {
@@ -710,10 +836,40 @@ a:hover {
     opacity: 0.75;
   }
 
+  .card {
+    padding: 2.15rem 1.65rem 1.85rem;
+  }
+
   .card-shell::after,
   #awards .card-shell--honors::after {
-    width: 48px;
-    height: 12px;
+    width: 54px;
+    height: 14px;
+    top: 0.36rem;
+    right: 0.5rem;
+  }
+
+  #awards .card-shell--honors::after {
+    right: auto;
+    left: 0.5rem;
+  }
+
+  #highlights .card {
+    padding: 3.65rem 1.85rem 2.15rem;
+  }
+
+  .timeline .card {
+    padding: 2.15rem 1.65rem 1.85rem;
+  }
+
+  .highlight-detail-paper-wrap.card-shell::after {
+    width: 54px;
+    height: 14px;
+    top: 0.36rem;
+    right: 0.5rem;
+  }
+
+  .highlight-detail-paper {
+    padding: 3.65rem 1.85rem 2.15rem;
   }
 }
 

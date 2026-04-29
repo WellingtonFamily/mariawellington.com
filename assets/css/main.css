@@ -489,6 +489,10 @@ h2 {
   padding-bottom: 2.5rem;
 }
 
+#highlights .grid > .card-shell {
+  transform: translateY(-10px);
+}
+
 /*
  * Washi: one consistent placement on every grid card (top-right, straddling the tear).
  * Only the gradient color varies by column — no jumping left/right.
@@ -519,6 +523,21 @@ h2 {
 
 .grid > .card-shell:nth-child(3n + 3)::after {
   background: var(--tape-mint);
+}
+
+/* Academic Focus: nudge washi tape slightly higher on the cards */
+#academics .card-shell::after {
+  top: calc(0.42rem - 8px);
+}
+
+/* Activities & Leadership: nudge washi tape slightly lower on the cards */
+#extracurriculars .card-shell::after {
+  top: calc(0.42rem + 4px);
+}
+
+/* Highlights: washi tape slightly lower on the cards */
+#highlights .card-shell::after {
+  top: calc(0.42rem + 10px);
 }
 
 .card h3 {
@@ -722,7 +741,7 @@ h2 {
 
 /* Honors: same tape geometry as grid, top-left so it doesn’t crowd the heading */
 #awards .card-shell--honors::after {
-  top: 0.42rem;
+  top: calc(0.42rem - 5px);
   right: auto;
   left: 0.62rem;
   width: 64px;
@@ -849,12 +868,17 @@ a:hover {
   }
 
   #awards .card-shell--honors::after {
+    top: calc(0.36rem - 5px);
     right: auto;
     left: 0.5rem;
   }
 
   #highlights .card {
     padding: 3.65rem 1.85rem 2.15rem;
+  }
+
+  #highlights .card-shell::after {
+    top: calc(0.36rem + 10px);
   }
 
   .timeline .card {

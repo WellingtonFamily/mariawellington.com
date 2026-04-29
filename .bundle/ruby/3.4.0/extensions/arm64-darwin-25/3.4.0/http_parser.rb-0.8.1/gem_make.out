@@ -1,12 +1,12 @@
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
-/nix/store/88sazm3fj9kabg4pxmnjc53cx0syp8fk-ruby-3.4.8/bin/ruby extconf.rb
+/nix/store/l7m1shyp6zm26pz8lrjwc9mmzf5hd0b1-ruby-3.4.9/bin/ruby extconf.rb
 creating Makefile
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-5cyv1f sitelibdir\=./.gem.20260426-59354-5cyv1f clean
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-exdwhj sitelibdir\=./.gem.20260428-44139-exdwhj clean
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-5cyv1f sitelibdir\=./.gem.20260426-59354-5cyv1f
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-exdwhj sitelibdir\=./.gem.20260428-44139-exdwhj
 compiling ruby_http_parser.c
 ruby_http_parser.c:373:17: warning: comparison of integers of different signs: 'size_t' (aka 'unsigned long') and 'long' [-Wsign-compare]
   373 |     if (nparsed < len)
@@ -16,8 +16,8 @@ compiling ryah_http_parser.c
 linking shared-object ruby_http_parser.bundle
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-5cyv1f sitelibdir\=./.gem.20260426-59354-5cyv1f install
-install -c -p -m 755 ruby_http_parser.bundle ./.gem.20260426-59354-5cyv1f
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-exdwhj sitelibdir\=./.gem.20260428-44139-exdwhj install
+install -c -p -m 755 ruby_http_parser.bundle ./.gem.20260428-44139-exdwhj
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/http_parser.rb-0.8.1/ext/ruby_http_parser
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-5cyv1f sitelibdir\=./.gem.20260426-59354-5cyv1f clean
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-exdwhj sitelibdir\=./.gem.20260428-44139-exdwhj clean

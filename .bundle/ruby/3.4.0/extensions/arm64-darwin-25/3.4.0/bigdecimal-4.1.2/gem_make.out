@@ -1,5 +1,5 @@
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/bigdecimal-4.1.2/ext/bigdecimal
-/nix/store/88sazm3fj9kabg4pxmnjc53cx0syp8fk-ruby-3.4.8/bin/ruby extconf.rb
+/nix/store/l7m1shyp6zm26pz8lrjwc9mmzf5hd0b1-ruby-3.4.9/bin/ruby extconf.rb
 checking for __builtin_clz()... yes
 checking for __builtin_clzl()... yes
 checking for __builtin_clzll()... yes
@@ -21,17 +21,17 @@ checking for RUBY_TYPED_EMBEDDABLE in ruby.h... yes
 creating Makefile
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/bigdecimal-4.1.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-lgsfsg sitelibdir\=./.gem.20260426-59354-lgsfsg clean
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-8xyh7z sitelibdir\=./.gem.20260428-44139-8xyh7z clean
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/bigdecimal-4.1.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-lgsfsg sitelibdir\=./.gem.20260426-59354-lgsfsg
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-8xyh7z sitelibdir\=./.gem.20260428-44139-8xyh7z
 compiling bigdecimal.c
 compiling missing.c
 linking shared-object bigdecimal.bundle
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/bigdecimal-4.1.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-lgsfsg sitelibdir\=./.gem.20260426-59354-lgsfsg install
-install -c -p -m 755 bigdecimal.bundle ./.gem.20260426-59354-lgsfsg
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-8xyh7z sitelibdir\=./.gem.20260428-44139-8xyh7z install
+install -c -p -m 755 bigdecimal.bundle ./.gem.20260428-44139-8xyh7z
 
 current directory: /Users/thewellington/Sites/mariawellington.com/.bundle/ruby/3.4.0/gems/bigdecimal-4.1.2/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20260426-59354-lgsfsg sitelibdir\=./.gem.20260426-59354-lgsfsg clean
+make DESTDIR\= sitearchdir\=./.gem.20260428-44139-8xyh7z sitelibdir\=./.gem.20260428-44139-8xyh7z clean

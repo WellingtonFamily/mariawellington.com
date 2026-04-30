@@ -17,6 +17,8 @@ sections:
   - heading: Youth Theatre Northwest
     productions:
       - title: The Wall and the Woods
+        season: Fall 2024
+      - title: "The Wall and the Woods: A Workshop Production"
         season: Spring 2023
       - title: Charlie and the Chocolate Factory
         season: Spring 2022

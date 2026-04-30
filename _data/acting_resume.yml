@@ -1,7 +1,7 @@
 # Acting resume — add sections or productions as needed. Order here is display order (top to bottom).
 intro:
-  before_name: "Selected stage credits — "
-  after_name: ", performer with Chief Sealth Drama Company and Youth Theatre Northwest."
+  before_name: "Stage credits for "
+  after_name: ", spanning Chief Sealth Drama Company, Bayfest Youth Theatre, and Youth Theatre Northwest."
 
 sections:
   - heading: Chief Sealth Drama Company

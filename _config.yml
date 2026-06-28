@@ -13,5 +13,7 @@ exclude:
   - "Gemfile"
   - "Gemfile.lock"
   - "*.toml"
+  - vendor/bundle/
+  - .bundle/
 
 collections: []

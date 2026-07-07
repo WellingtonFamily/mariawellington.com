@@ -2,7 +2,8 @@
   <div class="container">
     <h2>Highlights</h2>
     <div class="grid">
-      {% for highlight in site.data.highlights %}
+      {% assign highlights = site.data.highlights | sort: "date" | reverse %}
+      {% for highlight in highlights %}
         <div class="card-shell">
           <article class="card{% if highlight.image or highlight.poster_pdf %} card--with-map{% endif %}{% if highlight.detail_url %} card--clickable{% endif %}">
             {% if highlight.detail_url %}

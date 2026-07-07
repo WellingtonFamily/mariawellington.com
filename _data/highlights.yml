@@ -1,4 +1,5 @@
 - title: Performing Arts - Little Shop of Horrors
+  date: 2026-04-01
   image: /assets/images/little-shop-horrors-poster.jpg
   image_alt: "Little Shop of Horrors production poster"
   poster_pdf: /assets/documents/little-shop-horrors-poster.pdf
@@ -6,6 +7,7 @@
 
 - title: Rivière Coulonge trip
   slug: coulonge
+  date: 2025-07-01
   image: /assets/images/coulonge-map-thumb.jpg
   image_alt: "Preview of the Rivière Coulonge route map (CalTopo)"
   description: "In the summer of 2025, I spent four weeks on trip with Camp Wabun on the Rivière Coulonge in Québec—building the skills it takes to live and work with people in the wild. It was hard and demanding, and also one of the most rewarding experiences I have had."
@@ -15,6 +17,7 @@
 
 - title: Winisk River trip
   slug: winisk
+  date: 2026-07-01
   image: /assets/images/winisk-map-thumb.jpg
   image_alt: "Preview of the Winisk River route map (CalTopo)"
   description: "During the summer of 2026, I paddled more than 800 km over six weeks to Hudson Bay on the Winisk River with Camp Wabun—one of the most demanding and rewarding trips I have taken."

@@ -3,6 +3,7 @@
     <h2>Activities & Leadership</h2>
     <div class="grid">
       {% for activity in site.data.extracurriculars %}
+        {% unless activity.hidden %}
         <div class="card-shell">
           <article class="card{% if activity.detail_url %} card--clickable{% endif %}">
             {% if activity.detail_url %}
@@ -17,6 +18,7 @@
             <p>{{ activity.impact }}</p>
           </article>
         </div>
+        {% endunless %}
       {% endfor %}
     </div>
   </div>

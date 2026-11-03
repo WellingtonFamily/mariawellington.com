@@ -7,6 +7,9 @@ markdown: kramdown
 theme: null
 permalink: pretty
 
+include:
+  - _redirects
+
 exclude:
   - "*.nix"
   - "README*"
